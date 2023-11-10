@@ -6,10 +6,12 @@ require_once("includes/header.php");
 
 if($session->is_signed()){
     redirect("index.php");
+
 }
 
 //if (isset($_POST['submit']))
 if ($_SERVER["REQUEST_METHOD"] == "POST")
+
 {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']); // Change 'paswword' to 'password'
@@ -19,22 +21,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $session->login($user_found);
         /*$message = "Test OK";*/
         redirect("index.php");
-    } else {
-        $message = "Your password or username is incorrect"; // Fix 'ypur' to 'your'
+    } 
+    
+    if($session->check_message()) {
+        
+      $message = "Your password or username is incorrect"; // Fix 'ypur' to 'your'
+    
         redirect("login.php");
     }
-} else {
+}
+
+
+
+else {
     $username = "";
     $password = "";
-    $message = "Wrong Test";
+ 
+   
     
     //redirect("login.php");
 }
+
+
+
 ?>
 
 
-<div class="col-md-4 col-md-offset-3">
+<div class="col-md-4 col-md-offset-3" style="background-color:white;">
     <h4 class="bg-danger"><?php echo $message; ?></h4> <!-- Fix $the_message to $message -->
+
     
     <form id="login-id" action="" method="post">
         <div class="form-group">
