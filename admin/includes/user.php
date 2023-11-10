@@ -17,7 +17,6 @@ class Users{
     }
 
 
-        
     
     /*public  static  function  find_user_id($user_id){
         global $database;
