@@ -12,7 +12,11 @@ class Users{
         
         return self::find_query("SELECT * FROM user");
         
+
+
     }
+
+
         
     
     /*public  static  function  find_user_id($user_id){
